@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#PBS -N WGC811
+#PBS -q bigmem
+#PBS -e WGC811_script_err
+#PBS -o WGC811_script_log
+#PBS -l mem=200gb,walltime=100:00:00,nodes=1:ppn=4
+#HSCHED -s hschedd
+
+#############################################################################################################################
+cd /leofs/mishl_group/lim
+#ref=/leofs/mishl_group/liangl/rare_dis/hg19_gatkorder
+
+#bwa=/software/biosoft/software/bwa-0.7.10/bwa
+#java=/software/biosoft/software/java1.7/jdk1.7.0_45/bin/java
+#gatk=/software/biosoft/software/gatk/GenomeAnalysisTK.jar
+#picard_dir=/software/biosoft/software/picard-tools-1.86
+############################################################################################################################
+
+#samtools view WGC034811U_dedup_realign_recal.bam | perl -e '$file= join "", <>;@num= $file=~m/:WGC/g;$num=@num;print "WGC_number is $num\n";' >> WGC811.num_txt 2>>WGC811.num_err
+perl /leofs/mishl_group/lanyq/work/rarediease/mywork/WGC811.pl 2>WGC811.num_err
+#echo -n "the total line is " >> WGC811.num_txt
+#samtools view WGC034798_dedup_realign_recal.bam | wc -l >> WGC811.num_txt
